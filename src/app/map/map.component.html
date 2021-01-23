@@ -1,0 +1,27 @@
+<div id="map">
+<button mat-button (click)="loadRoute()"> Calcular </button>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker
+        *ngFor="let m of markers; let i = index"
+        (markerClick)="clickedMarker(m, i)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label"
+        [markerDraggable]="m.draggable"
+        (dragEnd)="markerDragEnd(m, $event)">
+
+      <agm-info-window>
+        <strong>{{selectedMarker?.label}}</strong>
+      </agm-info-window>
+
+      <agm-direction
+        [origin]="origin"
+        [destination]="destination"
+        [waypoints]="waypoints"
+        *ngIf="startRoute"
+      >
+      </agm-direction>
+
+    </agm-marker>
+  </agm-map>
+</div>

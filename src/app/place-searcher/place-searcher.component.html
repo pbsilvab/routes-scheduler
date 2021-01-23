@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-form-field class="example-form-field fullwidth">
+    <mat-label>Clearable input</mat-label>
+    <input matInput (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" spellcheck="off"  type="text" #search>
+    <!-- <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" >
+      <mat-icon>close</mat-icon>
+    </button> -->
+  </mat-form-field>
+</mat-card>
